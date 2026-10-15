@@ -48,17 +48,17 @@ app.UseRouting();
 
 app.UseCors("AllowReactApp"); // <-- CORS BURAYA EKLENECEK
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.MapGet("/", () => "E-Ticaret API Çalışıyor!");
 app.MapControllers();
 
 app.Run();
