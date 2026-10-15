@@ -32,7 +32,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("https://e-ticaret-frontend-seven.vercel.app") // React Vite adresi
+        policy.WithOrigins("https://e-ticaret-frontend-22sx.onrender.com") // React Vite adresi
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
