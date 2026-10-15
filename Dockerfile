@@ -1,15 +1,12 @@
-# Build aşaması
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["*.csproj", "./"]
-RUN dotnet restore
+COPY ["ECommerce.Api.csproj", "./"]
+RUN dotnet restore "ECommerce.Api.csproj"
 COPY . .
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet publish "ECommerce.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-# Çalıştırma aşaması
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-COPY --from=build /app/publish .
-ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
-ENTRYPOINT ["dotnet", "E-Ticaret.API.dll"]
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "ECommerce.Api.dll"]
