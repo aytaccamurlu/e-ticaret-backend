@@ -32,7 +32,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("https://e-ticaret-frontend-seven.vercel.app,http://localhost:5173") // React Vite adresi
+        policy.WithOrigins("https://e-ticaret-frontend-seven.vercel.app") // React Vite adresi
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -45,6 +45,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseCors("AllowFrontend");
 app.UseRouting();
 
 app.UseCors("AllowReactApp"); // <-- CORS BURAYA EKLENECEK
@@ -56,7 +57,7 @@ app.UseCors("AllowReactApp"); // <-- CORS BURAYA EKLENECEK
 
 
 app.UseHttpsRedirection();
-app.UseCors("AllowFrontend");
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapGet("/", () => "E-Ticaret API Çalışıyor!");
