@@ -45,21 +45,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-app.UseCors("AllowFrontend");
-app.UseRouting();
-
-app.UseCors("AllowReactApp"); // <-- CORS BURAYA EKLENECEK
-// Configure the HTTP request pipeline.
-
-
-    app.UseSwagger();
-    app.UseSwaggerUI();
-
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
+// CORS, authentication ve authorization işlemlerinden önce çalışmalı.
+app.UseCors("AllowReactApp");
+
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapGet("/", () => "E-Ticaret API Çalışıyor!");
 app.MapControllers();
 
