@@ -112,3 +112,4 @@ C:\Desktop\e-ticaret\ECommerce.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Prot
 C:\Desktop\e-ticaret\ECommerce.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Desktop\e-ticaret\ECommerce.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Desktop\e-ticaret\ECommerce.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Desktop\e-ticaret\ECommerce.Api\obj\Debug\net8.0\ECommerce.Api.sourcelink.json
